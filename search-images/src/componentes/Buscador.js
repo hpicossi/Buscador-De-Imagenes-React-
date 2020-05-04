@@ -74,11 +74,15 @@ class BuscadorForm extends React.Component {
       alert(error);
     });
     console.log("url ", url);
+    console.log("hola ", this.state.data);
   }
 
   render() {
+    console.log(this.state.data);
+
     return (
-      <form onSubmit={this.handleSubmit}>
+      <div>
+    <form onSubmit={this.handleSubmit}>
         <label>
           Name:
           <input type="text" value={this.state.value} onChange={this.handleChange}
@@ -87,6 +91,19 @@ class BuscadorForm extends React.Component {
         </label>
         <input type="submit" value="submit" />
       </form>
+      <div>
+          {this.state.data && (
+            <div>
+              <p>datos</p>
+              <ul>
+                {Object.keys(this.state.data.hits).map((data, hits) => (
+                  <li key={hits}>{this.state.data[hits]}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+       </div>
     );
   }
 }
