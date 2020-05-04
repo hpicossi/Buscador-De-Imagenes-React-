@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Buscador from './componentes/Buscador';
+import BuscadorForm from './componentes/Buscador';
 
 
 class App extends Component {
@@ -13,7 +14,11 @@ class App extends Component {
           mensaje="Buscador..."/>
 
           </div>
+          <div>
+          <BuscadorForm/>
+          </div>
         </div>
+
     );
   }
 }
