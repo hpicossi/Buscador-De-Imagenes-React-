@@ -2,36 +2,7 @@ import React, { Component } from 'react';
 
 import axios from "axios";
 
-class Buscador extends Component{
 
-  busquedaRef = React.createRef();
-
-  obtenerDatos = (e) => {
-    e.preventDefault();
-
-    console.log(this.busquedaRef.current.value)
-  }
-
-  render() {
-    return (
-      <form onSubmit={this.obtenerDatos}>
-        <div className="row">
-          <div className="form-group col-md-8">
-            <input ref={this.busquedaRef}
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="Busca Tu Imagen. Ejemplo: Futbol" />
-          </div>
-          <div className="form-group col-md-4">
-            <input type="submit"
-            className="btn btn-lg btn-danger btn-block" value= "Buscar..."/>
-          </div>
-
-        </div>
-      </form>
-    );
-  }
-}
 
 
 
@@ -46,12 +17,12 @@ class BuscadorForm extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(event) {
+  handleChange({ target: { value } }) {
     this.setState({value: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+
     event.preventDefault();
   }
 
@@ -73,19 +44,25 @@ class BuscadorForm extends React.Component {
     .catch(function (error) {
       alert(error);
     });
+
+
     console.log("url ", url);
     console.log("hola ", this.state.data);
+
   }
 
   render() {
     console.log(this.state.data);
+    console.log(this.state.data.hits);
+    const d = JSON.stringify(this.state.data.hits);
 
     return (
       <div>
     <form onSubmit={this.handleSubmit}>
         <label>
           Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange}
+          <input type="text"className="form-control form-control-lg"
+           value={this.state.value} onChange={this.handleChange}
           onClick={() => this.handleClick()}
            />
         </label>
@@ -96,13 +73,22 @@ class BuscadorForm extends React.Component {
             <div>
               <p>datos</p>
               <ul>
-                {Object.keys(this.state.data.hits).map((data, hits) => (
-                  <li key={hits}>{this.state.data[hits]}</li>
+                {Object.keys(this.state.data.hits).map((data, id) => (
+
+
+                  <li key={id}>
+                  <img src={JSON.stringify(this.state.data.hits[id].largeImageURL).replace(/['"]+/g, '')} />
+
+
+                  </li>
                 ))}
               </ul>
             </div>
           )}
+
         </div>
+
+
        </div>
     );
   }
