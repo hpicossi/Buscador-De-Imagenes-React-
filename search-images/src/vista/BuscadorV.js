@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Buscador from '.././componentes/Buscador';
-
+ 
 class BuscadorV extends Component{
 
   render() {
