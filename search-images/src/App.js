@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Buscador from './componentes/Buscador';
-import Resultado from './componentes/Resultado'
+import Resultado from './componentes/Resultado';
 
 class App extends Component {
 

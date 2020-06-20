@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Imagen from './Imagen';
-import Paginacion from './Paginacion';
+import Imagen from '.././vista/Imagen';
+import Paginacion from '../vista/Paginacion';
 
 class Resultado extends Component {
 
