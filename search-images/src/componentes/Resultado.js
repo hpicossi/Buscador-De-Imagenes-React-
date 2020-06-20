@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Imagen from '.././vista/Imagen';
-import Paginacion from '../vista/Paginacion';
+import PaginacionV from '../vista/PaginacionV';
 
 class Resultado extends Component {
 
@@ -22,7 +22,7 @@ class Resultado extends Component {
             />
           ))}
         </div>
-        <Paginacion
+        <PaginacionV
           paginaAnterior= {this.props.paginaAnterior}
           paginaSiguiente= {this.props.paginaSiguiente}
         />
