@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BuscadorV from './vista/BuscadorV';
 import Resultado from './componentes/Resultado';
+import Buscador from './componentes/Buscador';
 
 class App extends Component {
 
@@ -53,12 +54,14 @@ class App extends Component {
 
   }
 
+
+
   render(){
     return(
       <div className = "app container">
         <div className = "jumbotron">
           <p className = "lead text-center">Buscador De Imagenes</p>
-          <BuscadorV datosBusqueda = {this.datosBusqueda}/>
+          <BuscadorV datosBusqueda = {Buscador.datosBusqueda}/>
         </div>
         <div className= "row justify-content-center">
           <Resultado
