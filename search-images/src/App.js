@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import BuscadorV from './vista/BuscadorV';
 import Resultado from './componentes/Resultado';
-import Buscador from './componentes/Buscador';
+import BuscadorV from './componentes/Buscador';
 
 class App extends Component {
 
@@ -54,14 +53,23 @@ class App extends Component {
 
   }
 
-
+  datosBusqueda = (termino) => {
+    //guardo datos en el state
+    this.setState({
+      termino : termino,
+      pagina : 1
+    }, () => {
+      //mando a ejecutar al appi
+      this.consultarApi();
+    })
+  }
 
   render(){
     return(
       <div className = "app container">
         <div className = "jumbotron">
           <p className = "lead text-center">Buscador De Imagenes</p>
-          <BuscadorV datosBusqueda = {Buscador.datosBusqueda}/>
+          <BuscadorV datosBusqueda = {this.datosBusqueda}/>
         </div>
         <div className= "row justify-content-center">
           <Resultado

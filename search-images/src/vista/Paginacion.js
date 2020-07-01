@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PaginacionV = props => {
+const Paginacion = props => {
   return ( 
     <div>
         <nav aria-label="Page navigation example">
@@ -16,4 +16,4 @@ const PaginacionV = props => {
 
 
 
-export default PaginacionV;
+export default Paginacion;
